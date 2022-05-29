@@ -57,3 +57,28 @@ Array.prototype.unique= function(){
 console.log(arr.unique());
 
 
+//Coding challenge #1
+
+const Car = function(make, speed){
+    this.make=make;
+    this.speed=speed;
+} 
+Car.prototype.accelerate=function(){
+    return this.speed += 10;
+}
+
+Car.prototype.brake=function(){
+    return this.speed-= 5;
+}
+
+const bmw = new Car('BMW',120);
+const mercedes = new Car('Mercedes',95);
+
+console.log(bmw.accelerate());
+console.log(bmw.accelerate());
+console.log(bmw.brake());
+
+console.log(mercedes.brake());
+console.log(mercedes.brake());
+console.log(mercedes.accelerate());
+
