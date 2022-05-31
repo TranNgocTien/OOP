@@ -112,7 +112,7 @@ class PersonCl{
 
     //Set a property that already exists
     set fullName(name){
-        if(name.includes(' ')) this.fullName=name;
+        if(name.includes(' ')) this._fullName=name;
         else alert(`${name} is not a full name!`);
     }
     get fullName(){
@@ -145,3 +145,26 @@ const account={
         return this.movements.slice(-1).pop()
     }
 }
+
+//Object.create
+const PersonProto={
+    calcAge(){
+        console.log(2037-this.birthYear);
+    },
+
+    init(firstName,birthYear){
+        this.firstName=firstName;
+        this.birthYear=birthYear;
+    }
+}
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name='Steven';
+steven.birthYear=2002;
+steven.calcAge();
+console.log(steven.__proto__);
+
+const sarah=Object.create(PersonProto);
+sarah.init('Sarah',1979);
+sarah.calcAge();
+
