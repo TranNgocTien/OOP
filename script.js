@@ -419,15 +419,18 @@ class Account{
     }
     deposit(val){
         this.#movements.push(val);
+        return this;
     }
 
     withdraw(val){
         this.deposit(-val);
+        return this;
     }
     requestLoan(val){
         if(this._approveLoan(val)){
             this.deposit(val);
             console.log(`Loan approved`);
+            return this;
         }
     }
 
@@ -451,5 +454,6 @@ acc1.withdraw(140);
 acc1.requestLoan(1000);
 acc1.approveLoan(1000);
 console.log(acc1);
-
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
 
